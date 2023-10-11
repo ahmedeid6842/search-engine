@@ -1,0 +1,21 @@
+<h1>Analytics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>your query hits in last week</th>
+    </tr>
+    <tr>
+      <th>Query</th>
+      <th>Hits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% last_week_search_analytics.each do |search_analytics_date| %>
+      <tr>
+        <td><%= search_analytics_date.search_analytic.query %></td>
+        <td><%= search_analytics_date.hits %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
