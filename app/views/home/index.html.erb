@@ -1,8 +1,8 @@
-<% if user_signed_in? %> 
- <div> Welcome <%= current_user.email %> </div> 
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-<% else %>
-  <%= button_to "Sign in", new_user_session_path %> 
-<% end %>
+<h1>Real-Time Search</h1>
 
-<h1>Hello Helpjuice</h1>
+<%= form_with url: '/search', method: :post, id: 'search-form' do |form| %>
+<%= form.text_field :query, id: 'search-input' , placeholder: 'Search articles...' , autocomplete: 'off' %>
+<%= form.submit 'Search' , id: 'search-button' %>
+<% end %>
+<%= link_to 'Analytics', '/analytics' %>
+
