@@ -31,13 +31,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_132457) do
   end
 
   create_table "search_analytics_dates", force: :cascade do |t|
-    t.bigint "search_analytics_id", null: false
+    t.bigint "search_analytic_id", null: false
     t.bigint "users_id", null: false
     t.date "searched_date"
-    t.integer "hits"
+    t.integer "hits", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["search_analytics_id"], name: "index_search_analytics_dates_on_search_analytics_id"
+    t.index ["search_analytic_id"], name: "index_search_analytics_dates_on_search_analytic_id"
     t.index ["users_id"], name: "index_search_analytics_dates_on_users_id"
   end
 
@@ -55,6 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_132457) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "search_analytics_dates", "search_analytics", column: "search_analytics_id"
+  add_foreign_key "search_analytics_dates", "search_analytics"
   add_foreign_key "search_analytics_dates", "users", column: "users_id"
 end
