@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  search_analytics: one
+  searcher: one
+  searched_date: 2023-10-11
+  hits: 1
+
+two:
+  search_analytics: two
+  searcher: two
+  searched_date: 2023-10-11
+  hits: 1

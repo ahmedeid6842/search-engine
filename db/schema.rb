@@ -10,9 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_11_124701) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_11_132457) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.integer "searched_hits"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "search_analytics", force: :cascade do |t|
+    t.string "query"
+    t.integer "searched"
+    t.integer "found"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "search_analytics_dates", force: :cascade do |t|
+    t.bigint "search_analytics_id", null: false
+    t.bigint "users_id", null: false
+    t.date "searched_date"
+    t.integer "hits"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["search_analytics_id"], name: "index_search_analytics_dates_on_search_analytics_id"
+    t.index ["users_id"], name: "index_search_analytics_dates_on_users_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_124701) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "search_analytics_dates", "search_analytics", column: "search_analytics_id"
+  add_foreign_key "search_analytics_dates", "users", column: "users_id"
 end
