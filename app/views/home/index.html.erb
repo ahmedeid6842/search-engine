@@ -1,8 +1,13 @@
 <h1>Real-Time Search</h1>
 
 <%= form_with url: '/search', method: :post, id: 'search-form' do |form| %>
-<%= form.text_field :query, id: 'search-input' , placeholder: 'Search articles...' , autocomplete: 'off' %>
-<%= form.submit 'Search' , id: 'search-button' %>
+    <%= form.text_field :query, id: 'search-input' , placeholder: 'Search articles...' , autocomplete: 'off' %>
+    <%= form.submit 'Search' , id: 'search-button' %>
 <% end %>
+
+<div id="search-results"></div>
 <%= link_to 'Analytics', '/analytics' %>
+
+<%= javascript_include_tag 'search' %>
+
 
