@@ -8,6 +8,15 @@
 <div id="search-results"></div>
 <%= link_to 'Analytics', '/analytics' %>
 
+<h2>trending search queries in the past 24 hour</h2>
+
+<ul>
+  <% @last_week_search_analytics.each do |search_analytic| %>
+    <li><%= search_analytic.query %></li>
+  <% end %>
+</ul>
+
+
 <%= javascript_include_tag 'search' %>
 
 
