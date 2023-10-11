@@ -11,7 +11,7 @@ searchInput.addEventListener('input', updateSearchResults);
 
 function updateSearchResults() {
     const query = searchInput.value.trim();
-
+console.log(query)
     if (query.length === 0) {
         searchResultsContainer.innerHTML = '';
         return;
