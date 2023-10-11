@@ -4,7 +4,7 @@ class CreateSearchAnalyticsDates < ActiveRecord::Migration[7.0]
       t.references :search_analytics, null: false, foreign_key: true
       t.references :users, null: false, foreign_key: true
       t.date :searched_date
-      t.integer :hits
+      t.integer :hits, default: 0
 
       t.timestamps
     end
