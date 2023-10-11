@@ -24,8 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_132457) do
 
   create_table "search_analytics", force: :cascade do |t|
     t.string "query"
-    t.integer "searched"
-    t.integer "found"
+    t.integer "searched", default: 0
+    t.integer "found", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_132457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
