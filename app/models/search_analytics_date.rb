@@ -1,4 +1,4 @@
 class SearchAnalyticsDate < ApplicationRecord
-  belongs_to :search_analytics
-  belongs_to :searcher, class_name: 'User'
+  belongs_to :search_analytic
+  belongs_to :users, class_name: 'User'
 end
