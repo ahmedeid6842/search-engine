@@ -13,8 +13,10 @@
               <h5 class="card-subtitle mb-2 text-muted">Your top search Last Week</h5>
               <ul class="list-group mb-4">
                 <% last_week_search_analytics.each do |search_analytics_date| %>
-                  <li class="list-group-item"><%= search_analytics_date.search_analytic.query %>  (<%= search_analytics_date.hits %>)</li>
-                <% end %>
+                  <li class="list-group-item">
+                    <%= search_analytics_date.search_analytic.query %> (<%= search_analytics_date.hits %>)
+                  </li>
+                  <% end %>
               </ul>
             </div>
 
@@ -22,8 +24,10 @@
               <h5 class="card-subtitle mb-2 text-muted">Global Last Day Search Analytics</h5>
               <ul class="list-group mb-4">
                 <% global_last_day_search_analytics.each do |search_analytic| %>
-                  <li class="list-group-item"><%= search_analytic.query %> (<%= search_analytic.searched %>) </li>
-                <% end %>
+                  <li class="list-group-item">
+                    <%= search_analytic.query %> (<%= search_analytic.searched %>)
+                  </li>
+                  <% end %>
               </ul>
             </div>
           </div>
