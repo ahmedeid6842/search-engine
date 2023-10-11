@@ -1,22 +1,27 @@
-<h1>Real-Time Search</h1>
+<div class="container">
 
-<%= form_with url: '/search', method: :post, id: 'search-form' do |form| %>
-    <%= form.text_field :query, id: 'search-input' , placeholder: 'Search articles...' , autocomplete: 'off' %>
-    <%= form.submit 'Search' , id: 'search-button' %>
-<% end %>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1>Real-Time Search</h1>
 
-<div id="search-results"></div>
-<%= link_to 'Analytics', '/analytics' %>
+            <form class="d-flex mt-4" id="search-form">
+                <input class="form-control me-2" type="search" placeholder="Search articles..." id="search-input">
+                <button class="btn btn-outline-success me-2" type="submit" id="search-button">Search</button>
+                <%= link_to 'Analytics' , '/analytics' , class: "btn btn-primary" %>
+            </form>
+        </div>
+    </div>
 
-<h2>trending search queries in the past 24 hour</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8 mt-4">
 
-<ul>
-  <% @last_week_search_analytics.each do |search_analytic| %>
-    <li><%= search_analytic.query %></li>
-  <% end %>
-</ul>
+            <div class="card mb-4" id="search-results">
 
+            </div>
+
+        </div>
+    </div>
+
+</div>
 
 <%= javascript_include_tag 'search' %>
-
-
