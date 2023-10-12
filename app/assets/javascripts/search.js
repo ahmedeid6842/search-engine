@@ -9,12 +9,10 @@ function updateSearchResults() {
     const searchInput = document.getElementById('search-input');
     const searchResultsContainer = document.getElementById('search-results');
     const query = searchInput.value.trim();
-    console.log(query)
     if (query.length === 0) {
         searchResultsContainer.innerHTML = '';
         return;
     }
-    console.log(query);
     const authenticityToken = document.querySelector('[name="csrf-token"]').content;
     const options = {
         method: 'POST',

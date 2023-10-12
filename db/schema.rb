@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_12_030958) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_12_125039) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_030958) do
     t.datetime "updated_at", null: false
     t.bigint "author_id"
     t.index ["author_id"], name: "index_articles_on_author_id"
+    t.index ["content"], name: "index_articles_on_content"
+    t.index ["title"], name: "index_articles_on_title"
   end
 
   create_table "search_analytics", force: :cascade do |t|
@@ -30,6 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_030958) do
     t.integer "found", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["query"], name: "index_search_analytics_on_query"
   end
 
   create_table "search_analytics_dates", force: :cascade do |t|
