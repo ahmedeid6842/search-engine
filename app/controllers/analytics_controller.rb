@@ -8,6 +8,9 @@ class AnalyticsController < ApplicationController
 
       last_week_search_analytics = SearchAnalyticsDate.where(users: user, searched_date: 1.week.ago..Date.today).order(hits: :desc).limit(10)
   
-      render 'analytics', locals: { last_week_search_analytics: last_week_search_analytics, global_last_day_search_analytics: global_last_day_search_analytics }
+      sum_searched = SearchAnalytic.sum(:searched)
+      sum_found = SearchAnalytic.sum(:found)
+
+      render 'analytics', locals: { last_week_search_analytics: last_week_search_analytics, global_last_day_search_analytics: global_last_day_search_analytics, searched: sum_searched, found: sum_found }
     end
   end
