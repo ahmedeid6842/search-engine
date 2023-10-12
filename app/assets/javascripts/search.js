@@ -11,7 +11,7 @@ searchInput.addEventListener('input', updateSearchResults);
 
 function updateSearchResults() {
     const query = searchInput.value.trim();
-console.log(query)
+    console.log(query)
     if (query.length === 0) {
         searchResultsContainer.innerHTML = '';
         return;
@@ -37,13 +37,20 @@ console.log(query)
                     <p class="card-text">No articles found.</p>
                 `
             } else {
-
                 articlesHTML = articles.map(article => {
-
-                    return `<div class="card-body">
-                  <h4 class="card-title">${article.title}</h4>
-                  <p class="card-text">${article.content}</p>
-                </div>`;
+                    const created_at = new Date(article.created_at)
+                    return `<li class="list-group-item  border-0">
+                    <div class="card border-0 shadow d-flex flex-row justify-content-between align-items-start">
+                        <div class="card-body">
+                            <h4 class="card-title mb-3">${article.title} by Ahmed Eid</h4>
+                            <p class="card-text">${article.content}</p>
+                        </div>
+                        <div class="d-flex flex-column align-items-start justify-content-between mt-3 mx-4">
+                            <span class="badge bg-primary rounded-pill mb-2">Searched Hits: ${article.searched_hits}</span>
+                            <span class="badge bg-primary rounded-pill">Creation Date: ${created_at.getFullYear()} - ${created_at.getMonth() + 1} - ${created_at.getDate()}</span>
+                        </div>
+                    </div>
+                </li>`
                 }).join('');
             }
             searchResultsContainer.innerHTML = articlesHTML;
