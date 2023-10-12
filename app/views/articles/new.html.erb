@@ -1,5 +1,5 @@
 <section class="container my-4">
-    <h2 class="text-center fs-1 mb-4">Create New Post</h2>
+    <h2 class="text-center fs-1 mb-4">Create New Article</h2>
     <%= form_with(model: @article, url: articles_path) do |form| %>
         <div class="form-group">
             <% form.label :title %>
@@ -8,11 +8,14 @@
 
         <div class="form-group my-4">
             <% form.label :content %>
-                <%= form.text_area :content, class:"form-control col-6", placeholder:"Enter the content of the Post" %>
+                <%= form.text_area :content, class:"form-control col-6", rows: 4, placeholder:"Enter the content of the article" %>
         </div>
 
-        <div class="text-center">
+        <div class="text-center mb-2">
             <%= form.submit 'Create Article' , class: 'btn btn-primary' %>
         </div>
         <% end %>
+            <div class="text-center">
+                <%= link_to 'Back to home' , '/' , class: "btn btn-primary" %>
+            </div>
 </section>
