@@ -12,7 +12,6 @@ class SearchController < ApplicationController
         UpdateSearchAnalyticsDatesJob.perform_later({query: query, user: current_user})
       end
 
-
-      render json: { articles: @articles }
+      render json: { articles: @articles.as_json(include: { author: { only: :name } }) }
     end
 end
