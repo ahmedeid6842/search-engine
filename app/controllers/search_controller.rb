@@ -5,7 +5,7 @@ class SearchController < ApplicationController
       query = params[:query]&.strip
       return if query.blank?
 
-      @articles = Article.where('title LIKE ? OR content LIKE ?', "%#{query}%", "%#{query}%")
+      @articles = Article.where('title ILIKE ? OR content ILIKE ?', "%#{query}%", "%#{query}%")
 
       if query.include?('?')
         UpdateSearchAnalyticsJob.perform_later({query: query, articles: @articles.to_a})
