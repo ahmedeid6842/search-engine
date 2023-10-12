@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-![how-high-resolution-logo-color-on-transparent-background](https://github.com/ahmedeid6842/search-engine/assets/57197702/39c07f3a-2f4f-4efe-92db-4b1f5581a5f7)
+![search-engine-high-resolution-logo-color-on-transparent-background](https://github.com/ahmedeid6842/search-engine/assets/57197702/5a594296-7162-4b13-b3c1-834768615a8a)
 
 <br>
 <br>
@@ -114,7 +114,7 @@ The application will be accessible at http://localhost:3000.
 
 ## 🏗️🔨 [Database ERD](https://drawsql.app/teams/microverse-114/diagrams/search-engine) <a name="erd"></a>
 
-![drawSQL-search-engine-export-2023-10-12](https://github.com/ahmedeid6842/search-engine/assets/57197702/b243cd65-8117-48b7-9edf-3a9cf8decb01)
+![drawSQL-search-engine-export-2023-10-12](https://github.com/ahmedeid6842/search-engine/assets/57197702/34554f26-cf44-4e56-84f1-8bb07b2c39e3)
 
 ## 👤 Author <a name="author"></a>
 **Ahmed Eid 🙋‍♂️**
