@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   post '/search', to: 'search#search'
   get '/analytics', to: 'analytics#index'
-  
+  resources :articles, only: [:new, :create]
+
   # Defines the root path route ("/")
   # root "articles#index"
 end

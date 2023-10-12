@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :search_analytics_dates, foreign_key: 'user_id'
   has_many :search_analytics, through: :search_analytics_dates
-  has_many :article, foreign_key: 'author_id'
+  has_many :articles, foreign_key: 'author_id'
 end
