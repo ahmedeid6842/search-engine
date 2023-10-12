@@ -1,9 +1,14 @@
 <div class="container">
 
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h1>Real-Time Search</h1>
-
+    <div class="row justify-content-center mt-6">
+        <div class="col-md-8 ">
+            <div class="d-flex flex-row justify-content-between mt-4 align-items-start">
+                <h1>Real-Time Search</h1>
+                <div class="mt-2">
+                    <%= link_to 'Create Article' , new_article_path, class: "btn btn-primary" %>
+                    <%= link_to 'Logout' , destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-outline-danger" %>
+                </div>
+            </div>
             <form class="d-flex mt-4" id="search-form">
                 <input class="form-control me-2" type="search" placeholder="Search articles..." id="search-input">
                 <button class="btn btn-outline-success me-2" type="submit" id="search-button">Search</button>
@@ -18,9 +23,7 @@
             </ul>
         </div>
     </div>
-    <div class="text-center">
-        <%= link_to 'Create Article' , new_article_path, class: "btn btn-primary" %>
-    </div>
+
 </div>
 
 <%= javascript_include_tag 'search' %>
