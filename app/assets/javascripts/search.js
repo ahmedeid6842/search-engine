@@ -1,15 +1,13 @@
-const searchForm = document.getElementById('search-form');
-const searchInput = document.getElementById('search-input');
-const searchResultsContainer = document.getElementById('search-results');
-
-searchForm.addEventListener('submit', event => {
+document.getElementById('search-form').addEventListener('submit', event => {
     event.preventDefault();
     updateSearchResults();
 });
 
-searchInput.addEventListener('input', updateSearchResults);
+document.getElementById('search-input').addEventListener('input', updateSearchResults);
 
 function updateSearchResults() {
+    const searchInput = document.getElementById('search-input');
+    const searchResultsContainer = document.getElementById('search-results');
     const query = searchInput.value.trim();
     console.log(query)
     if (query.length === 0) {
