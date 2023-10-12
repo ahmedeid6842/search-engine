@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_11_132457) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_12_022900) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_132457) do
     t.integer "searched_hits"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "author_id"
+    t.index ["author_id"], name: "index_articles_on_author_id"
   end
 
   create_table "search_analytics", force: :cascade do |t|
@@ -55,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_132457) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "users", column: "author_id"
   add_foreign_key "search_analytics_dates", "search_analytics"
   add_foreign_key "search_analytics_dates", "users", column: "users_id"
 end
