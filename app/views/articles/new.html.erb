@@ -1,11 +1,18 @@
-<h1>New Article</h1>
+<section class="container my-4">
+    <h2 class="text-center fs-1 mb-4">Create New Post</h2>
+    <%= form_with(model: @article, url: articles_path) do |form| %>
+        <div class="form-group">
+            <% form.label :title %>
+                <%= form.text_field :title, class:"form-control col-6", placeholder:"Enter the Title of the article" %>
+        </div>
 
-<%= form_with(model: @article, url: articles_path) do |form| %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
+        <div class="form-group my-4">
+            <% form.label :content %>
+                <%= form.text_area :content, class:"form-control col-6", placeholder:"Enter the content of the Post" %>
+        </div>
 
-  <%= form.label :content %>
-  <%= form.text_area :content %>
-
-  <%= form.submit 'Create Article', class: 'btn btn-primary' %>
-<% end %>
+        <div class="text-center">
+            <%= form.submit 'Create Article' , class: 'btn btn-primary' %>
+        </div>
+        <% end %>
+</section>
