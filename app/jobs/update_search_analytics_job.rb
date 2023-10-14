@@ -2,7 +2,7 @@ class UpdateSearchAnalyticsJob < ApplicationJob
   queue_as :default
 
   def perform(input)
-    search_analytic = SearchAnalytic.find_or_initialize_by(query: input[:query])
+    search_analytic = SearchAnalytic.find_or_initialize_by(query: input[:query].downcase)
 
     search_analytic.update(searched: search_analytic.searched + 1)
     
