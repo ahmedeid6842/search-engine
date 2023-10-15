@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 
   def fetch_recommended_articles(user)
     user_keywords = UserKeyWordsAnalytic.find_or_initialize_by(users: current_user);
-    user_keywords_array = JSON.parse(user_keywords.keywords).keys.first(10).shuffle() # shuufle the array to ge random order
+    user_keywords_array =user_keywords_array.nil? ? {} : JSON.parse(user_keywords.keywords).keys.first(10).shuffle() # shuufle the array to ge random order
     query_array = user_keywords_array.map{|k| "%#{k}%"}
     
 
