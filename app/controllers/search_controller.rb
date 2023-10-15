@@ -9,6 +9,7 @@ class SearchController < ApplicationController
       
       if query.include?('?')
         UpdateKeyWordsAnalyticsJob.perform_later({query: query, user:current_user})
+        UpdateGlobalKeyWordsAnalyticsJob.perform_later({query: query})
         UpdateSearchAnalyticsJob.perform_later({query: query, articles: @articles.to_a, user: current_user})
       end
 
