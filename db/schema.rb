@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_15_014830) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_15_070652) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_15_014830) do
     t.index ["author_id"], name: "index_articles_on_author_id"
     t.index ["content"], name: "index_articles_on_content"
     t.index ["title"], name: "index_articles_on_title"
+  end
+
+  create_table "global_keywords", force: :cascade do |t|
+    t.string "keyword"
+    t.integer "day_hit"
+    t.integer "previous_day_rank"
+    t.integer "week_hit"
+    t.integer "previous_week_rank"
+    t.integer "month_hit"
+    t.integer "previous_month_rank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "search_analytics", force: :cascade do |t|
