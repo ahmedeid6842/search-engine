@@ -2,8 +2,18 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    last_week_search_analytics = SearchAnalytic.where(updated_at: 1.day.ago..DateTime.now).order(searched: :desc).limit(10)
-    # Pass the last week's search analytics to the view.
-    @last_week_search_analytics = last_week_search_analytics
+    recommended_articles = fetch_recommended_articles(current_user)
+    render 'index', locals: { recommended_articles: recommended_articles.to_a }
+  end
+
+  def fetch_recommended_articles(user)
+    user_keywords = UserKeyWordsAnalytic.find_or_initialize_by(users: current_user);
+    user_keywords_array = JSON.parse(user_keywords.keywords).keys.first(10).shuffle() # shuufle the array to ge random order
+    query_array = user_keywords_array.map{|k| "%#{k}%"}
+    
+
+
+    article = Article.where("title ILIKE ANY (ARRAY[?]) OR content ILIKE ANY (ARRAY[?])", 
+                  query_array, query_array).limit(10)
   end
 end
