@@ -1,0 +1,2 @@
+class GlobalKeyWordsAnalytic < ApplicationRecord
+end
