@@ -10,7 +10,7 @@ class GlobalKeyWordsAnalytic < ApplicationRecord
     def self.update_previous_week_rank_reset
         records = order(current_week_hit: :desc, updated_at: :desc)
         records.each_with_index do |record, index|
-            record.update(previous_week_rank: index+1, previous_week_hit: current_week_hit)
+            record.update(previous_week_rank: index+1, previous_week_hit: record.current_week_hit)
         end
         update_all(current_week_hit: 0)
     end
@@ -18,7 +18,7 @@ class GlobalKeyWordsAnalytic < ApplicationRecord
     def self.update_previous_month_rank_reset
         records = order(current_month_hit: :desc, updated_at: :desc)
         records.each_with_index do |record, index|
-            record.update(previous_month_rank: index+1, previous_month_hit: current_month_hit)
+            record.update(previous_month_rank: index+1, previous_month_hit: record.current_month_hit)
         end
         update_all(current_month_hit: 0)
     end
