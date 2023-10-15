@@ -33,7 +33,7 @@
         <div class="row">
             <% recommended_articles.each do |article| %>
                 <div class="col-md-4">
-                    <div class="card mb-4" style="height:13rem;">
+                    <div class="card mb-4" style="height:14rem;">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">
                                 <%= article.title %>
@@ -47,7 +47,7 @@
                             <p class="card-text text-muted small mt-auto">Author: <%= article.author.name %>
                             </p>
                             <div class="mt-auto">
-                                <%= link_to 'Read More' , class: "btn btn-primary" %>
+                                <%= link_to 'Read More',article_path(article) , class: "btn btn-primary" %>
                             </div>
                         </div>
                     </div>
