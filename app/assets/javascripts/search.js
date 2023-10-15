@@ -39,7 +39,7 @@ function updateSearchResults() {
                     <div class="card border-0 shadow d-flex flex-row justify-content-between align-items-start">
                         <div class="card-body">
                             <h4 class="card-title mb-3">${article.title} by ${article.author.name}</h4>
-                            <p class="card-text">${article.content}</p>
+                            <p class="card-text">${article.content.slice(0,100)} ${article.content.length>100 ? "......":""} </p>
                         </div>
                         <div class="d-flex flex-column align-items-start justify-content-between mt-3 mx-4">
                             <span class="badge bg-primary rounded-pill mb-2">Searched Hits: ${article.searched_hits}</span>
