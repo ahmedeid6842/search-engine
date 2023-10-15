@@ -4,7 +4,7 @@ class UpdateKeyWordsAnalyticsJob < ApplicationJob
   def perform(input)
     user_keywords = UserKeyWordsAnalytic.find_or_initialize_by(users: input[:user]);
     
-    keywords = query_tokenizer(input[:query]); 
+    keywords = query_tokenizer(input[:query].downcase); 
     updated_keywords = user_keywords.update_keywords(keywords)
   end
 
