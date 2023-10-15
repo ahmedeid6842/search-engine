@@ -1,7 +1,7 @@
 env :PATH, ENV['PATH']
 set :output, './log/cron.log'
 
-every 2.minutes do 
+every 1.day do 
     runner "GlobalKeyWordsAnalytic.update_previous_day_rank_reset"
 end
 
