@@ -4,9 +4,9 @@ class UpdateGlobalKeyWordsAnalyticsJob < ApplicationJob
   def perform(input)
     input[:keywords].keys.each do |key|
       keyword = GlobalKeyWordsAnalytic.find_or_initialize_by(keyword: key)
-      keyword.day_hit += 1
-      keyword.week_hit += 1
-      keyword.month_hit += 1
+      keyword.current_day_hit += 1
+      keyword.current_week_hit += 1
+      keyword.current_month_hit += 1
 
       keyword.save
     end
