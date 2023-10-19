@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <h1>Analytics</h1>
 
       <div class="card mb-4">
@@ -37,8 +37,68 @@
               </ul>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <h5 class="card-subtitle mb-2 text-muted">Trending Keywords Previous Day</h5>
+              <ul class="list-group mb-4 overflow-auto" style="max-height: 20rem;">
+                <% trending_keywords_previous_day.each_with_index do |keyword,index| %>
+                  <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                    <div>
+                      <%=index + 1%>) <%= keyword.keyword %>
+                    </div>
+                    <div class="d-flex flex-column">
+                      <span class="badge bg-primary rounded-pill mb-2">N.of previous hits: <%= keyword.previous_day_hit
+                          %></span>
+                      <span class="badge bg-primary rounded-pill">N.of current hits: <%= keyword.current_day_hit %>
+                          </span>
+                    </div>
+                  </li>
+                  <% end %>
+              </ul>
+            </div>
+
+            <div class="col-md-4">
+              <h5 class="card-subtitle mb-2 text-muted">Trending Keywords Previous Week</h5>
+              <ul class="list-group mb-4 overflow-auto" style="max-height: 20rem;">
+                <% trending_keywords_previous_week.each_with_index do |keyword, index| %>
+                  <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                    <div>
+                      <%=index + 1%>) <%= keyword.keyword %>
+                    </div>
+                    <div class="d-flex flex-column">
+                      <span class="badge bg-primary rounded-pill mb-2">N.of previous hits: <%= keyword.previous_week_hit
+                          %></span>
+                      <span class="badge bg-primary rounded-pill">N.of current hits: <%= keyword.current_week_hit %>
+                          </span>
+                    </div>
+                  </li>
+                  <% end %>
+              </ul>
+            </div>
+
+            <div class="col-md-4">
+              <h5 class="card-subtitle mb-2 text-muted">Trending Keywords Previous Month</h5>
+              <ul class="list-group mb-4 overflow-auto" style="max-height: 20rem;">
+                <% trending_keywords_previous_month.each_with_index do |keyword,index| %>
+                  <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                    <div>
+                      <%=index +1 %>) <%= keyword.keyword %>
+                    </div>
+                    <div class="d-flex flex-column">
+                      <span class="badge bg-primary rounded-pill mb-2">N.of previous hits: <%= keyword.previous_month_hit
+                          %></span>
+                      <span class="badge bg-primary rounded-pill">N.of current hits: <%= keyword.current_month_hit %>
+                          </span>
+                    </div>
+                  </li>
+                  <% end %>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
+
       <div class="d-flex justify-content-center">
         <%= link_to 'Back to home' , '/' , class: "btn btn-primary" %>
       </div>

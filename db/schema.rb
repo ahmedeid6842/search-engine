@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_12_125039) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_15_130243) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_125039) do
     t.index ["author_id"], name: "index_articles_on_author_id"
     t.index ["content"], name: "index_articles_on_content"
     t.index ["title"], name: "index_articles_on_title"
+  end
+
+  create_table "global_key_words_analytics", force: :cascade do |t|
+    t.string "keyword"
+    t.integer "current_day_hit", default: 0
+    t.integer "previous_day_rank"
+    t.integer "current_week_hit", default: 0
+    t.integer "previous_week_rank"
+    t.integer "current_month_hit", default: 0
+    t.integer "previous_month_rank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "previous_day_hit", default: 0
+    t.integer "previous_week_hit", default: 0
+    t.integer "previous_month_hit", default: 0
   end
 
   create_table "search_analytics", force: :cascade do |t|
@@ -46,6 +61,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_125039) do
     t.index ["users_id"], name: "index_search_analytics_dates_on_users_id"
   end
 
+  create_table "user_key_words_analytics", force: :cascade do |t|
+    t.bigint "users_id", null: false
+    t.string "keywords"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_user_key_words_analytics_on_users_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -63,4 +86,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_125039) do
   add_foreign_key "articles", "users", column: "author_id"
   add_foreign_key "search_analytics_dates", "search_analytics"
   add_foreign_key "search_analytics_dates", "users", column: "users_id"
+  add_foreign_key "user_key_words_analytics", "users", column: "users_id"
 end
