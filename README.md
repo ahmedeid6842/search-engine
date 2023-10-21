@@ -9,6 +9,7 @@
 ### 📑 Table of Contents
 - [📘 Introduction](#introduction)
 - [🚀 Live Demo](#live-demo)
+- [🎥 Presentation Video](#presentation-video)
 - [💻 Getting Started](#getting-started)
   - [Prerequisites ❗](#prerequisites)
   - [Setup ⬇️](#setup)
@@ -38,7 +39,12 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://search-engine-demo-42912ae07ce6.herokuapp.com/)
+#### [Search-Engine :globe_with_meridians: :eyes: ](https://search-engine-v2-enhancments-6bd414cc751d.herokuapp.com/users/sign_in)
+
+## 🎥 Presentation Video <a name="presentation-video"></a>
+
+#### [Part-1 👀](https://www.loom.com/share/362bc4e4fe3e4d3c909b9cdfb9bd6f06?sid=f7c0a06c-0c02-4ec9-85eb-e29d7ac02f90)
+#### [Part-2 👀](https://www.loom.com/share/89332f06eea1472ab0dbf9a4b00b8ab9?sid=d559b2e1-4a5c-4e12-ab3b-7d8527756aff)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 To get a local copy up and running, follow these steps.
@@ -114,7 +120,7 @@ The application will be accessible at http://localhost:3000.
 
 ## 🏗️🔨 [Database ERD](https://drawsql.app/teams/microverse-114/diagrams/search-engine) <a name="erd"></a>
 
-![drawSQL-search-engine-export-2023-10-12](https://github.com/ahmedeid6842/search-engine/assets/57197702/34554f26-cf44-4e56-84f1-8bb07b2c39e3)
+![drawSQL-search-engine-export-2023-10-12](https://github.com/ahmedeid6842/search-engine/assets/57197702/80c893ac-08ff-4d01-b6ea-48d3625a1add)
 
 ## 👤 Author <a name="author"></a>
 **Ahmed Eid 🙋‍♂️**
