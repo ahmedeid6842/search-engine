@@ -118,7 +118,7 @@ The application will be accessible at http://localhost:3000.
 
 - Alright, it's showtime! 🔥 Hit `http://localhost:3000` and BOOM! 💥  You should see the login page and the Search Engine working flawlessly. ✨🧙‍♂️
 
-## 🏗️🔨 [Database ERD](https://drawsql.app/teams/microverse-114/diagrams/search-engine) <a name="erd"></a>
+## 🏗️🔨 [Database ERD] <a name="erd"></a>
 
 ![drawSQL-search-engine-export-2023-10-12](https://github.com/ahmedeid6842/search-engine/assets/57197702/80c893ac-08ff-4d01-b6ea-48d3625a1add)
 
